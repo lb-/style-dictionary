@@ -14,7 +14,6 @@
 var formats = require('../../lib/common/formats');
 var createDictionary = require('../../lib/utils/createDictionary');
 var createFormatArgs = require('../../lib/utils/createFormatArgs');
-var _ = require('../../lib/utils/es6_');
 
 var file = {
   "destination": "__output/",
@@ -46,7 +45,7 @@ var properties = {
 };
 
 describe('formats', () => {
-  _.each(_.keys(formats), function(key) {
+  Object.keys(formats).forEach((key) => {
 
     var formatter = formats[key].bind(file);
     const dictionary = createDictionary({ properties });

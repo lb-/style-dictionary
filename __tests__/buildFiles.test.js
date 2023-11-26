@@ -13,7 +13,6 @@
 
 var buildFiles = require('../lib/buildFiles');
 var helpers = require('./__helpers');
-var _ = require('../lib/utils/es6_');
 
 var dictionary = {
   properties: {
@@ -119,7 +118,7 @@ describe('buildFiles', () => {
     var output = require("./__output/test.json")
     expect(output).toHaveProperty('bingo');
     expect(output).not.toHaveProperty('foo');
-    _.each(output, function(property) {
+    Object.values(output).forEach((property) => {
       expect(property.value).toBe('bango');
     });
   });

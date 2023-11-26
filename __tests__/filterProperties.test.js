@@ -14,7 +14,6 @@
 var filterProperties = require('../lib/filterProperties');
 var helpers = require('./__helpers');
 var flattenProperties = require("../lib/utils/flattenProperties");
-var _ = require('../lib/utils/es6_');
 
 var colorRed = {
   "value": "#FF0000",
@@ -139,7 +138,7 @@ describe('filterProperties', () => {
       return property.path.includes("size");
     }
     var filteredDictionary = filterProperties(dictionary, filter);
-    _.each(filteredDictionary.allProperties, function(property) {
+    filteredDictionary.allProperties.forEach((property) => {
       expect(property).not.toBe(colorRed);
       expect(property).not.toBe(colorBlue);
     });
@@ -154,7 +153,7 @@ describe('filterProperties', () => {
     }
 
     var filteredDictionary = filterProperties(falsy_dictionary, filter);
-    _.each(filteredDictionary.allProperties, function(property) {
+    filteredDictionary.allProperties.forEach((property) => {
       expect(property).not.toBe(not_kept);
     });
     expect(filteredDictionary.allProperties).toEqual([kept]);

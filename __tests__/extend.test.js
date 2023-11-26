@@ -13,7 +13,6 @@
 
 var helpers = require('./__helpers');
 var StyleDictionary = require('../index');
-var _ = require('../lib/utils/es6_');
 
 function traverseObj(obj, fn) {
   for (let key in obj) {
@@ -56,7 +55,7 @@ describe('extend', () => {
 
     it('should have all same properties', () => {
       var StyleDictionaryExtended = StyleDictionary.extend({});
-      _.each(_.keys(StyleDictionaryExtended), function(property) {
+      Object.keys(StyleDictionaryExtended).forEach((property) => {
         expect(StyleDictionaryExtended).toHaveProperty(property);
       });
     });

@@ -13,7 +13,6 @@
 
 var formats = require('../../lib/common/formats');
 var scss = require('node-sass');
-var _ = require('../../lib/utils/es6_');
 var createDictionary = require('../../lib/utils/createDictionary');
 var createFormatArgs = require('../../lib/utils/createFormatArgs');
 
@@ -118,7 +117,7 @@ var properties = {
 };
 
 describe('formats', () => {
-  _.each(['scss/map-flat', 'scss/map-deep'], function(key) {
+  ['scss/map-flat', 'scss/map-deep'].forEach((key) => {
 
     describe(key, () => {
 
